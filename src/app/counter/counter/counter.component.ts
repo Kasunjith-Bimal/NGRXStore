@@ -1,22 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-counter',
   templateUrl: './counter.component.html',
   styleUrls: ['./counter.component.css']
 })
-export class CounterComponent {
-  counter : number = 0;
+export class CounterComponent  {
 
-  OnReset(){
-    this.counter = 0
-  }
+ 
 
-  OnDecrement(){
-   this.counter--;
-  }
+  constructor() {
 
-  onIncrement(){
-    this.counter++; 
   }
+ 
 }

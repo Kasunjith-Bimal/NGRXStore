@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-counter-button',
@@ -7,4 +7,19 @@ import { Component } from '@angular/core';
 })
 export class CounterButtonComponent {
 
+  @Output() incement = new EventEmitter<void>();
+  @Output() decrement = new EventEmitter<void>();
+  @Output() reset = new EventEmitter<void>();
+  
+  OnIncrement(){
+    this.incement.emit();
+  }
+
+  OnDecrement(){
+    this.decrement.emit();
+  }
+
+  OnReset(){
+    this.reset.emit();
+  }
 }

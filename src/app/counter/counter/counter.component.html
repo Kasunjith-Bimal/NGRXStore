@@ -1,1 +1,11 @@
-<p>counter works!</p>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="my-3">
+       <app-counter-output [counter]="counter"></app-counter-output>
+        </div>
+        <div class="my-3">
+         <app-counter-button (incement)="onIncrement()" (decrement)="OnDecrement()"  (reset)="OnReset()"></app-counter-button>   
+        </div>
+    </div>
+</div>

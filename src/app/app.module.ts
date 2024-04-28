@@ -8,13 +8,14 @@ import { CounterButtonComponent } from './counter/counter-button/counter-button.
 import { CounterCustomInputComponent } from './counter/counter-custom-input/counter-custom-input.component';
 import { StoreModule } from '@ngrx/store';
 import { counterReducer } from './counter/state/counter.reducer';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { PostListComponent } from './posts/post-list/post-list.component';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { AppReducer } from './store/app.state';
+import { appReducer } from './store/app.state';
+import { PostAddComponent } from './posts/post-add/post-add.component';
 
 @NgModule({
   declarations: [
@@ -25,12 +26,14 @@ import { AppReducer } from './store/app.state';
     CounterCustomInputComponent,
     HomeComponent,
     HeaderComponent,
-    PostListComponent
+    PostListComponent,
+    PostAddComponent
   ],
   imports: [
     FormsModule,
+    ReactiveFormsModule,
     BrowserModule,
-    StoreModule.forRoot(AppReducer),
+    StoreModule.forRoot(appReducer),
     AppRoutingModule,
     StoreDevtoolsModule.instrument({
       logOnly: !isDevMode(), // Restrict extension to log-only mode

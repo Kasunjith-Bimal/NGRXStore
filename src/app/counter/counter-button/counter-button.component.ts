@@ -2,6 +2,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { CounterState } from '../state/counter.state';
 import { decrement, increment, reset } from '../state/counter.action';
+import { AppState } from 'src/app/store/app.state';
 
 @Component({
   selector: 'app-counter-button',
@@ -10,7 +11,7 @@ import { decrement, increment, reset } from '../state/counter.action';
 })
 export class CounterButtonComponent {
 
-  constructor(private store: Store<{counter: CounterState }>) {
+  constructor(private store: Store<AppState>) {
 
   }
   // @Output() incement = new EventEmitter<void>();

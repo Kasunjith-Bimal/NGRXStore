@@ -1,0 +1,39 @@
+<div class="row my-4">
+    <div class="col-md-12">
+        <h3>Update Post</h3>
+        <hr>
+        <form [formGroup]="editForm" (ngSubmit)="onUpdatePost()">
+            <div class="mb-3">
+                <label>Title</label>
+                <input type="text" class="form-control" id="title" name="title" formControlName="title">
+                <div *ngIf="editForm.get('title')?.touched">
+                    <div *ngIf="editForm.get('title')?.hasError('required')">
+                      Title is required
+                    </div>
+                    <div *ngIf="editForm.get('title')?.hasError('minlength')">
+                        Title should be minimun 6 characted
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label>Description</label>
+                <input type="text" class="form-control" name="description" formControlName="description">
+                <div *ngIf="editForm.get('description')?.touched" >
+                    <div *ngIf="editForm.get('description')?.hasError('required')">
+                      Description is required
+                    </div>
+                    <div *ngIf="editForm.get('description')?.hasError('minlength')">
+                      Description should be minimun 10 characted
+                    </div>
+                </div>
+                <!-- <div>
+                    {{showDescriptionErrors()}}
+                </div> -->
+            </div>
+            <div class="my-3">
+               <button type="submit" class="btn btn-primary" [disabled]="!editForm.valid">Update Post</button>
+            </div>
+        </form>
+    </div>
+</div>
+

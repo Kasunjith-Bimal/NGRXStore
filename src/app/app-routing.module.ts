@@ -5,6 +5,7 @@ import { HomeComponent } from './home/home.component';
 import { CounterComponent } from './counter/counter/counter.component';
 import { PostListComponent } from './posts/post-list/post-list.component';
 import { PostAddComponent } from './posts/post-add/post-add.component';
+import { PostEditComponent } from './posts/post-edit/post-edit.component';
 
 
 
@@ -15,7 +16,8 @@ const routes: Routes = [
     path: 'posts',
     component: PostListComponent, 
     children: [
-      {path: 'add', component:PostAddComponent }
+      {path: 'add', component:PostAddComponent },
+      {path: 'edit/:id', component:PostEditComponent }
     ]
   }
 ];

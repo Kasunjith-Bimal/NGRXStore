@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Post } from 'src/app/model/post.model';
 import { AppState } from 'src/app/store/app.state';
 import { getPosts } from '../state/post.selector';
+import { deletePost } from '../state/post.action';
 
 @Component({
   selector: 'app-post-list',
@@ -17,6 +18,12 @@ export class PostListComponent implements OnInit {
   }
   
   constructor(private store: Store<AppState>) {
+  }
+
+  OnDelete(id: string){
+   if(confirm('Are you sure you want to delete')){
+    this.store.dispatch(deletePost({id}));
+   }
   }
 
 }

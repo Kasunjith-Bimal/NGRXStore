@@ -7,3 +7,10 @@ import { PostsState } from "./post.state";
    return state.posts;
  });
 
+
+ export const getPostById = (props: any) => {
+  return createSelector(getPostsState, (state) =>
+      state.posts.find((post) => post.id === props.id)
+  );
+}
+

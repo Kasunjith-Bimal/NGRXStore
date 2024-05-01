@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 import { User } from '../model/user.model';
 
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -22,5 +23,16 @@ export class AuthService {
     const expirationDate = new Date(new Date().getTime() + (+data.expiresIn) * 1000)
     const user = new User(data.email,data.idToken,data.localId,expirationDate);
     return user;
+  }
+
+  getErrorMessageReCreate(messge: string){
+    switch (messge) {
+      case 'EMAIL_NOT_FOUND':
+       return 'Email not found' 
+      case 'INVALID_PASSWORD':
+       return 'invalid password'
+      default : 
+      return 'Unknown error occured. please try again'; 
+    }
   }
 }

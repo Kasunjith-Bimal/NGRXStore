@@ -8,8 +8,8 @@ import { AuthEffects } from './state/auth.effects';
 import { SignUpComponent } from './sign-up/sign-up.component';
 
 const routes:Routes =[
-   { 
-     path: '', 
+   {
+     path: '',
      children:[
       {path:'',redirectTo:'login',pathMatch:'full'},
       {path:'login',component:LoginComponent},
@@ -27,7 +27,7 @@ const routes:Routes =[
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    EffectsModule.forFeature([AuthEffects]),
+    EffectsModule.forFeature([]),
     ReactiveFormsModule,
     FormsModule
   ]

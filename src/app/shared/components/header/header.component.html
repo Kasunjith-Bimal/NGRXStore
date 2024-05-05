@@ -17,14 +17,11 @@
         <li class="nav-item"  *ngIf="!(isAuthenticated | async)">
           <a class="nav-link" href="#"  [routerLink]="['/auth']">Login</a>
         </li>
-        <li class="nav-item"  *ngIf="authenticatedUserDetail | async as AuthenticateUser">
-          <a class="nav-link">{{AuthenticateUser.email}}</a>
-        </li>
         <li class="nav-item"  *ngIf="!(isAuthenticated | async)">
           <a class="nav-link" href="#"  [routerLink]="['/auth/signup']" >SignUp</a>
         </li>
-        <li class="nav-item"  *ngIf="(isAuthenticated | async)">
-          <a class="nav-link" href="#" >Logout</a>
+        <li class="nav-item" >
+          <a class="nav-link" href="#"  (click)="onLogout($event)" >Logout</a>
         </li>
         <li class="nav-item">
           <a class="nav-link disabled" href="#">Disabled</a>

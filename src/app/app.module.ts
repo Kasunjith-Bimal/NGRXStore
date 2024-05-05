@@ -10,6 +10,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { HttpClientModule } from '@angular/common/http';
 import { LoadingSpinnerComponent } from './shared/components/loading-spinner/loading-spinner.component';
 import { appReducer } from './store/app.state';
+import { AuthEffects } from './auth/state/auth.effects';
 
 
 @NgModule({
@@ -18,12 +19,12 @@ import { appReducer } from './store/app.state';
     HomeComponent,
     HeaderComponent,
     LoadingSpinnerComponent,
-    
+
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    EffectsModule.forRoot([]),
+    EffectsModule.forRoot([AuthEffects]),
     StoreModule.forRoot(appReducer),
     AppRoutingModule,
     StoreDevtoolsModule.instrument({

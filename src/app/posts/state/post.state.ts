@@ -5,8 +5,5 @@ export interface PostsState{
 }
 
 export const initialState:PostsState ={
- posts:[
-    {"id":"1","description":"A","title":"A"},
-    {"id":"2","description":"B","title":"B"}
- ]
+ posts:[]
 }

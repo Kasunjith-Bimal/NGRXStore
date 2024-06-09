@@ -15,8 +15,9 @@ import { deletePost, loadPosts } from '../state/post.action';
 export class PostListComponent implements OnInit {
  posts? : Observable<Post[]>;
   ngOnInit(): void {
-    this.posts = this.store.select(getPosts);
+
     this.store.dispatch(loadPosts());
+    this.posts = this.store.select(getPosts);
   }
 
 

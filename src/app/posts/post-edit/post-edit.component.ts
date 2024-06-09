@@ -30,6 +30,7 @@ export class PostEditComponent implements OnInit,OnDestroy {
       console.log(params.get('id'));
       const id = params.get('id');
       this.editSubscription =  this.store.select(getPostById({id})).subscribe((data: any)=>{
+        debugger;
         this.post = data;
         this.editForm =  new FormGroup({
           title : new FormControl( this.post.title,[Validators.required,Validators.minLength(6)]),
@@ -38,12 +39,12 @@ export class PostEditComponent implements OnInit,OnDestroy {
       });
     });
   }
- 
+
   onUpdatePost(){
    if(!this.editForm.valid){
     return
    }
-  
+
     let title : string = this.editForm.value.title;
     let description : string = this.editForm.value.description;
 
@@ -52,7 +53,7 @@ export class PostEditComponent implements OnInit,OnDestroy {
       description : description,
       title : title
     }
-    
+
     this.store.dispatch(updatePost({post}));
   }
 }

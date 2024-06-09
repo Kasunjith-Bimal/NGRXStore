@@ -1,8 +1,8 @@
 import { PostsService } from './../../service/posts.service';
 import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
-import { addPost, addPostSucess, loadPosts, loadPostsSuccess } from './post.action';
-import { map, mergeMap } from 'rxjs';
+import { addPost, addPostSucess, deletePost, deletePostSucess, loadPosts, loadPostsSuccess, updatePost, updatePostSucess } from './post.action';
+import { map, mergeMap, switchMap } from 'rxjs';
 
 
 @Injectable({
@@ -30,7 +30,33 @@ export class PostsEffects {
      mergeMap((action)=>{
        return this.postsService.addPost(action.post).pipe(map((data)=>{
          const post = {...action.post,id :data.name}
-         return addPostSucess({post})
+         return addPostSucess({post});
+       }))
+     })
+    );
+
+  });
+
+
+  updatePost$ = createEffect(()=>{
+    return this.actions$.pipe(
+     ofType(updatePost),
+     mergeMap((action)=>{
+       return this.postsService.updatePost(action.post).pipe(map((data)=>{
+        console.log(data);
+        return updatePostSucess({post:action.post});
+       }))
+     })
+    );
+
+  });
+
+  deletePost$ = createEffect(()=>{
+    return this.actions$.pipe(
+     ofType(deletePost),
+     switchMap((action)=>{
+       return this.postsService.deletePost(action.id).pipe(map((data)=>{
+        return deletePostSucess({id:action.id});
        }))
      })
     );

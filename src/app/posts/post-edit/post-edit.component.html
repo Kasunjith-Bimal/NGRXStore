@@ -5,7 +5,7 @@
         <form [formGroup]="editForm" (ngSubmit)="onUpdatePost()">
             <div class="mb-3">
                 <label>Title</label>
-                <input type="text" class="form-control" id="title" name="title" formControlName="title">
+                <input type="text" class="form-control" id="title" name="title" formControlName="title" />
                 <div *ngIf="editForm.get('title')?.touched">
                     <div *ngIf="editForm.get('title')?.hasError('required')">
                       Title is required
@@ -17,7 +17,7 @@
             </div>
             <div class="mb-3">
                 <label>Description</label>
-                <input type="text" class="form-control" name="description" formControlName="description">
+                <input type="text" class="form-control" name="description" formControlName="description"/>
                 <div *ngIf="editForm.get('description')?.touched" >
                     <div *ngIf="editForm.get('description')?.hasError('required')">
                       Description is required
